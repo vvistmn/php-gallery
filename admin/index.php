@@ -8,7 +8,6 @@
             <?php include 'includes/side_nav.php'?>
             <!-- /.navbar-collapse -->
         </nav>
-
         <div id="page-wrapper">
 
             <?php include 'includes/admin_content.php'?>
