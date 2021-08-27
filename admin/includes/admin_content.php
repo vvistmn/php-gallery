@@ -9,9 +9,29 @@
             </h1>
 
             <?php
-            if ($database->connection) {
-                echo 'true';
-            }
+                $allUsers = User::findAllUsers();
+
+                while ($row = $allUsers->fetch_assoc()) {
+                    echo '<pre>';
+                    var_dump(($row));
+                    echo '</pre>';
+                }
+
+            echo '<pre>';
+            var_dump(User::findUserById(2));
+            echo '</pre>';
+
+            $user = new User();
+
+            $user->id = 6;
+            $user->userName = 'username';
+            $user->password = '123';
+            $user->firstName = 'First Name';
+            $user->LasTname = 'Last Name';
+
+            echo '<pre>';
+            var_dump($user);
+            echo '</pre>';
             ?>
 
             <ol class="breadcrumb">
