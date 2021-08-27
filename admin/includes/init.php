@@ -1,4 +1,5 @@
 <?php
 
 include 'config.php';
-include 'database.php';
+include 'classes/database.php';
+include 'classes/user.php';
