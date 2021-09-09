@@ -1,5 +1,5 @@
 <?php
-
-include 'config.php';
-include 'database.php';
-include 'user.php';
+require_once 'functions.php';
+require_once 'config.php';
+require_once 'database.php';
+//include 'user.php';

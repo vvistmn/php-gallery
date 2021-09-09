@@ -9,29 +9,49 @@
             </h1>
 
             <?php
-                $allUsers = User::findAllUsers();
+//                $allUsers = User::findAllUsers();
+//
+//                foreach ($allUsers as $user) {
+//                    echo $user->username;
+//                    echo '<br>';
+//                }
 
-                while ($row = $allUsers->fetch_assoc()) {
-                    echo '<pre>';
-                    var_dump(($row));
-                    echo '</pre>';
-                }
+            $user = User::findUserById(2);
+            print_r($user);
 
-            echo '<pre>';
-            var_dump(User::findUserById(2));
-            echo '</pre>';
+            $picture = new Picture();
+//            echo '<pre>';
+//            var_dump($allUsers);
+//            echo '</pre>';
+//                while ($row = $allUsers->fetch_assoc()) {
+//                    echo '<pre>';
+//                    var_dump($row);
+//                    echo '</pre>';
+//                }
+//
+//            echo '<pre>';
+//            var_dump(User::findUserById(2));
+//            echo '</pre>';
 
-            $user = new User();
+//            $user = new User();
+//
+//            $user->id = 6;
+//            $user->userName = 'username';
+//            $user->password = '123';
+//            $user->firstName = 'First Name';
+//            $user->LasTname = 'Last Name';
+//
+//            echo '<pre>';
+//            var_dump($user);
+//            echo '</pre>';
 
-            $user->id = 6;
-            $user->userName = 'username';
-            $user->password = '123';
-            $user->firstName = 'First Name';
-            $user->LasTname = 'Last Name';
-
-            echo '<pre>';
-            var_dump($user);
-            echo '</pre>';
+//            $userByIdTwo = User::findUserById(2);
+//
+//            $user = User::instantion($userByIdTwo);
+//
+//            echo '<pre>';
+//            var_dump($user);
+//            echo '</pre>';
             ?>
 
             <ol class="breadcrumb">

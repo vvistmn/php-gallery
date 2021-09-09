@@ -3,10 +3,10 @@
 class User
 {
     public $id;
-    public $userName;
+    public $username;
     public $password;
-    public $firstName;
-    public $lastName;
+    public $first_name;
+    public $last_name;
 
     public static function  findAllUsers()
     {
@@ -18,11 +18,8 @@ class User
     {
         global $database;
         $sql = "SELECT * FROM users WHERE id =".$id;
-
         $result = self::findThisQuery($sql);
-        $foundUser = $result->fetch_assoc();
-
-        return $foundUser;
+        return !empty($result) ? array_shift($result) : false;
     }
 
     public static function findThisQuery($sql)
@@ -30,7 +27,31 @@ class User
         global $database;
 
         $result = $database->query($sql);
+        $objArray = [];
 
-        return $result;
+        while ($row = mysqli_fetch_array($result)) {
+            $objArray[] = self::instantion($row);
+        }
+
+        return $objArray;
+    }
+
+    public static function instantion($request)
+    {
+        $thisObj = new self;
+
+        foreach ($request as $attribute => $value) {
+            if ($thisObj->hasAttribute($attribute)) {
+                $thisObj->$attribute = $value;
+            }
+        }
+
+        return $thisObj;
+    }
+
+    private function hasAttribute($attribute)
+    {
+        $curProperties = get_object_vars($this);
+        return array_key_exists($attribute, $curProperties);
     }
 }
